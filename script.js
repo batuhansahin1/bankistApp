@@ -89,13 +89,12 @@ const labelDate = document.querySelector('.date');
 console.log(labelDate);
 
 const labelBalance = document.querySelector('.balance__value');
-//aşağıdaki input output yazıları
+
 const labelSumIn = document.querySelector('.summary__value--in');
 const labelSumOut = document.querySelector('.summary__value--out');
 
 const labelSumInterest = document.querySelector('.summary__value--interest');
 //süre yi yazdıracağımız yer
-//60 ile bölümü dakiika 60 ile modu saniye
 const labelTimer = document.querySelector('.timer');
 
 //giriş yaptıktan sonra gözükecek kısım
@@ -203,7 +202,7 @@ const displaySummary = function (currentAcc) {
 
   currentAcc.movements.forEach(element => {
     income += element > 0 ? element : 0;
-    outcome -= element < 0 ? element : 0; // outcome ı yazdıracağım için pozitif yapıtm
+    outcome -= element < 0 ? element : 0; 
   });
 
   // const income1 = currentAcc.movements
@@ -377,7 +376,7 @@ btnLoan.addEventListener('click', function (e) {
   e.preventDefault();
   console.log(Number(inputLoanAmount.value));
 
-  //girilen değerin yüzde 10 u total balancedan küçükse o borcu alabalir
+  
   if (
     +inputLoanAmount.value > 0 &&
     Number(inputLoanAmount.value) * 0.1 <= currentAcc.balance
@@ -403,16 +402,14 @@ btnTransfer.addEventListener('click', function (e) {
 
   const amount = +inputTransferAmount.value;
   console.log(amount);
-  //eğer böyle bir hesap var ise
+  
   if (
     transferringAccount &&
     amount &&
     currentAcc.balance >= amount &&
     transferringAccount.username !== currentAcc.username
   ) {
-    //miktarı kullanıcınn hesabına ekle currenttan çıkar
-    // bunu movementsta ekleyip diğer tüm değerleri update et hem current hem de transferring account için
-    //burada transferring account için displayleri çalıştırmadım çünkü ben current accounttayken transferring accounta geçtiğim zaman orada display işlemleri yapılacak zaten burada tekrar etmenin bi anlamı yok
+   
     executeAmount(currentAcc, transferringAccount, amount);
     //loadCurResult(currentAcc, transferringAccount, amount);
 
@@ -449,7 +446,3 @@ btnSort.addEventListener('click', function () {
   sorted = !sorted;
 });
 
-//dates ve numbersı intl sectionunu izledikten sonra tekrar yapacağım ve kodu dry prensiplerine uygun şekilde düzenleyeceğim
-
-//This project doing for understanding array manipulation concepts and some features will be add in the future maybe after watching advanced DOM Manipulation section
-//Some of them is creating account class for accounts and adding website register form after that banks account will be added to take kesintiler için
