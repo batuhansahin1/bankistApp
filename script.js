@@ -354,6 +354,8 @@ btnLogin.addEventListener('click', function (e) {
     console.log(currentAcc);
 
     inputLoginUsername.value = inputLoginPin.value = '';
+    inputCloseUsername.value = '';
+    inputClosePin.value = '';
     inputLoginPin.blur();
 
     containerApp.style.opacity = 100;
@@ -434,7 +436,7 @@ btnClose.addEventListener('click', function (e) {
     +inputClosePin.value === currentAcc.pin
   ) {
     const index = accounts.findIndex(
-      acc => (acc.username = currentAcc.username)
+      acc => (acc.username === currentAcc.username)
     );
     accounts.splice(index, 1);
     containerApp.style.opacity = 0;
